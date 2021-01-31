@@ -1,0 +1,6 @@
+[debug] Copy resource mappings: 
+[debug] 	(D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\conf\application.conf,D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\target\scala-2.13\classes\application.conf)
+[debug] 	(D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\conf\generated.keystore,D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\target\scala-2.13\classes\generated.keystore)
+[debug] 	(D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\conf\logback.xml,D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\target\scala-2.13\classes\logback.xml)
+[debug] 	(D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\conf\routes,D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\target\scala-2.13\classes\routes)
+[debug] 	(D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\conf\secure.conf,D:\Qi_Workspace\IdeaProjects\PlayScalaRestApi\target\scala-2.13\classes\secure.conf)
