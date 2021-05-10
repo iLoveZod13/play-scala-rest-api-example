@@ -1,13 +1,520 @@
-2021-01-30 19:18:26,199 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-14 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2021-03-23 11:39:25,174 [ERROR] from play.api.http.DefaultHttpErrorHandler in play-dev-mode-akka.actor.default-dispatcher-9 - 
+
+! @7j6ikno4n - Internal server error, for (GET) [/] ->
+ 
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:211)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:142)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:302)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1284)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:423)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:554)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:161)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:108)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$3(DevServerStart.scala:190)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:182)
+	... 23 common frames omitted
+2021-03-23 12:34:15,864 [ERROR] from play.api.http.DefaultHttpErrorHandler in play-dev-mode-akka.actor.default-dispatcher-20 - 
+
+! @7j6ikno4n - Internal server error, for (POST) [/] ->
+ 
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:211)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:142)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:302)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1284)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:423)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:554)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:161)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:108)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$3(DevServerStart.scala:190)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:182)
+	... 23 common frames omitted
+2021-03-23 14:40:35,806 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-8-thread-8 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 14:40:35,826 [INFO] from play.core.server.AkkaHttpServer in pool-8-thread-8 - Stopping Akka HTTP server...
+2021-03-23 14:40:35,876 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-25 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 14:40:35,926 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-25 - Running provided shutdown stop hooks
+2021-03-23 14:40:35,926 [WARN] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-30 - Task [shutdown-application-dev-mode] failed in phase [service-stop]: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error]
+2021-03-23 14:43:09,255 [ERROR] from play.api.http.DefaultHttpErrorHandler in play-dev-mode-akka.actor.default-dispatcher-8 - 
+
+! @7j6jj142l - Internal server error, for (POST) [/v1/complianceApi] ->
+ 
+play.api.UnexpectedException: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:211)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:142)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:302)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1284)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:423)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:554)
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:161)
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:108)
+	at com.google.inject.Guice.createInjector(Guice.java:87)
+	at com.google.inject.Guice.createInjector(Guice.java:78)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$3(DevServerStart.scala:190)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:182)
+	... 23 common frames omitted
+2021-03-23 15:04:52,845 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-13-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 15:04:52,845 [INFO] from play.core.server.AkkaHttpServer in pool-13-thread-9 - Stopping Akka HTTP server...
+2021-03-23 15:04:52,855 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-13 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 15:04:52,965 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-13 - Running provided shutdown stop hooks
+2021-03-23 15:04:52,965 [WARN] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-16 - Task [shutdown-application-dev-mode] failed in phase [service-stop]: Unexpected exception[CreationException: Unable to create injector, see the following errors:
+
+1) No implementation for v1.complianceApi.ComplianceRepository was bound.
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  at play.api.inject.RoutesProvider$.bindingsFromConfiguration(BuiltinModule.scala:139):
+Binding(class router.Routes to self) (via modules: com.google.inject.util.Modules$OverrideModule -> play.api.inject.guice.GuiceableModuleConversions$$anon$4)
+
+1 error]
+2021-03-23 15:16:22,995 [ERROR] from play.api.http.DefaultHttpErrorHandler in play-dev-mode-akka.actor.default-dispatcher-7 - 
+
+! @7j6jnafcg - Internal server error, for (POST) [/v1/complianceApi] ->
+ 
+play.api.UnexpectedException: Unexpected exception[ProvisionException: Unable to provision, see the following errors:
+
+1) Error injecting constructor, akka.ConfigurationException: Dispatcher [complRepository.dispatcher] not configured
+  at v1.complianceApi.ComplianceExecutionContext.<init>(ComplianceRepository.scala:12)
+  while locating v1.complianceApi.ComplianceExecutionContext
+    for the 1st parameter of v1.complianceApi.ComplianceRepositoryImpl.<init>(ComplianceRepository.scala:20)
+  at v1.complianceApi.ComplianceRepositoryImpl.class(ComplianceRepository.scala:20)
+  while locating v1.complianceApi.ComplianceRepositoryImpl
+  at Module.configure(Module.scala:29) (via modules: com.google.inject.util.Modules$OverrideModule -> Module)
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  while locating router.Routes
+  while locating play.api.inject.RoutesProvider
+  while locating play.api.routing.Router
+    for the 3rd parameter of RequestHandler.<init>(RequestHandler.scala:20)
+  while locating RequestHandler
+  while locating play.api.http.HttpRequestHandler
+    for the 6th parameter of play.api.DefaultApplication.<init>(Application.scala:178)
+  at play.api.DefaultApplication.class(Application.scala:177)
+  while locating play.api.DefaultApplication
+  while locating play.api.Application
+
+1 error]
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:211)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:142)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:302)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1284)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:423)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+Caused by: com.google.inject.ProvisionException: Unable to provision, see the following errors:
+
+1) Error injecting constructor, akka.ConfigurationException: Dispatcher [complRepository.dispatcher] not configured
+  at v1.complianceApi.ComplianceExecutionContext.<init>(ComplianceRepository.scala:12)
+  while locating v1.complianceApi.ComplianceExecutionContext
+    for the 1st parameter of v1.complianceApi.ComplianceRepositoryImpl.<init>(ComplianceRepository.scala:20)
+  at v1.complianceApi.ComplianceRepositoryImpl.class(ComplianceRepository.scala:20)
+  while locating v1.complianceApi.ComplianceRepositoryImpl
+  at Module.configure(Module.scala:29) (via modules: com.google.inject.util.Modules$OverrideModule -> Module)
+  while locating v1.complianceApi.ComplianceRepository
+    for the 1st parameter of v1.complianceApi.ComplianceResourceHandler.<init>(ComplianceResourceHandler.scala:16)
+  while locating v1.complianceApi.ComplianceResourceHandler
+    for the 2nd parameter of v1.complianceApi.ComplianceControllerComponents.<init>(ComplianceActioniBuilder.scala:39)
+  while locating v1.complianceApi.ComplianceControllerComponents
+    for the 1st parameter of v1.complianceApi.ComplianceController.<init>(ComplianceController.scala:12)
+  while locating v1.complianceApi.ComplianceController
+    for the 1st parameter of v1.complianceApi.ComplianceRouter.<init>(ComplianceRouter.scala:12)
+  while locating v1.complianceApi.ComplianceRouter
+    for the 2nd parameter of router.Routes.<init>(Routes.scala:25)
+  while locating router.Routes
+  while locating play.api.inject.RoutesProvider
+  while locating play.api.routing.Router
+    for the 3rd parameter of RequestHandler.<init>(RequestHandler.scala:20)
+  while locating RequestHandler
+  while locating play.api.http.HttpRequestHandler
+    for the 6th parameter of play.api.DefaultApplication.<init>(Application.scala:178)
+  at play.api.DefaultApplication.class(Application.scala:177)
+  while locating play.api.DefaultApplication
+  while locating play.api.Application
+
+1 error
+	at com.google.inject.internal.InternalProvisionException.toProvisionException(InternalProvisionException.java:226)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1097)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1131)
+	at play.api.inject.guice.GuiceInjector.instanceOf(GuiceInjectorBuilder.scala:436)
+	at play.api.inject.guice.GuiceInjector.instanceOf(GuiceInjectorBuilder.scala:431)
+	at play.api.inject.ContextClassLoaderInjector.$anonfun$instanceOf$2(Injector.scala:119)
+	at play.api.inject.ContextClassLoaderInjector.withContext(Injector.scala:128)
+	at play.api.inject.ContextClassLoaderInjector.instanceOf(Injector.scala:119)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$3(DevServerStart.scala:190)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:182)
+	... 23 common frames omitted
+Caused by: akka.ConfigurationException: Dispatcher [complRepository.dispatcher] not configured
+	at akka.dispatch.Dispatchers.lookupConfigurator(Dispatchers.scala:178)
+	at akka.dispatch.Dispatchers.lookup(Dispatchers.scala:138)
+	at play.api.libs.concurrent.CustomExecutionContext.<init>(CustomExecutionContext.scala:48)
+	at v1.complianceApi.ComplianceExecutionContext.<init>(ComplianceRepository.scala:12)
+	at v1.complianceApi.ComplianceExecutionContext$$FastClassByGuice$$5dc1e734.newInstance(<generated>)
+	at com.google.inject.internal.DefaultConstructionProxyFactory$FastClassProxy.newInstance(DefaultConstructionProxyFactory.java:89)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:114)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:168)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:62)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:168)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1094)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1131)
+	at play.api.inject.guice.GuiceInjector.instanceOf(GuiceInjectorBuilder.scala:436)
+	at play.api.inject.ContextClassLoaderInjector.$anonfun$instanceOf$3(Injector.scala:120)
+	at play.api.inject.ContextClassLoaderInjector.withContext(Injector.scala:128)
+	at play.api.inject.ContextClassLoaderInjector.instanceOf(Injector.scala:120)
+	at play.api.inject.RoutesProvider.$anonfun$get$2(BuiltinModule.scala:121)
+	at scala.Option.fold(Option.scala:263)
+	at play.api.inject.RoutesProvider.get$lzycompute(BuiltinModule.scala:121)
+	at play.api.inject.RoutesProvider.get(BuiltinModule.scala:116)
+	at play.api.inject.RoutesProvider.get(BuiltinModule.scala:110)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:85)
+	at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:77)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:59)
+	at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:61)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:62)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:168)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:62)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1094)
+	... 34 common frames omitted
+2021-03-23 15:20:31,439 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-17-thread-8 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 15:20:31,439 [INFO] from play.core.server.AkkaHttpServer in pool-17-thread-8 - Stopping Akka HTTP server...
+2021-03-23 15:20:31,479 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-12 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 15:20:33,791 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.internal-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2021-01-30 19:18:26,213 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-14 - Application started (Dev) (no global state)
-2021-01-30 19:18:26,442 [DEBUG] from application.ErrorHandler in application-akka.actor.default-dispatcher-7 - onClientError: statusCode = 404, uri = /, message = 
-2021-01-30 19:19:27,599 [DEBUG] from application.ErrorHandler in application-akka.actor.default-dispatcher-8 - onClientError: statusCode = 404, uri = /, message = 
-2021-01-30 19:20:05,334 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-9-thread-2 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
-2021-01-30 19:20:05,334 [INFO] from play.core.server.AkkaHttpServer in pool-9-thread-2 - Stopping Akka HTTP server...
-2021-01-30 19:20:05,344 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-17 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
-2021-01-30 19:20:05,521 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-28 - Running provided shutdown stop hooks
+2021-03-23 15:20:33,811 [INFO] from play.api.Play in play-dev-mode-akka.actor.internal-dispatcher-12 - Application started (Dev) (no global state)
+2021-03-23 15:20:33,902 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-14 - Running provided shutdown stop hooks
+2021-03-23 15:21:09,083 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 15:21:09,094 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2021-03-23 15:47:32,017 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-24-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 15:47:32,017 [INFO] from play.core.server.AkkaHttpServer in pool-24-thread-9 - Stopping Akka HTTP server...
+2021-03-23 15:47:32,057 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-13 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 15:47:36,935 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.internal-dispatcher-13 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 15:47:36,945 [INFO] from play.api.Play in play-dev-mode-akka.actor.internal-dispatcher-13 - Application started (Dev) (no global state)
+2021-03-23 15:47:36,965 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-15 - Running provided shutdown stop hooks
+2021-03-23 15:48:03,037 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 15:48:03,049 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2021-03-23 15:48:12,885 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-31-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 15:48:12,885 [INFO] from play.core.server.AkkaHttpServer in pool-31-thread-9 - Stopping Akka HTTP server...
+2021-03-23 15:48:12,895 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 15:48:12,972 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Running provided shutdown stop hooks
+2021-03-23 16:04:10,184 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 16:04:10,195 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2021-03-23 16:04:17,429 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-35-thread-3 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 16:04:17,429 [INFO] from play.core.server.AkkaHttpServer in pool-35-thread-3 - Stopping Akka HTTP server...
+2021-03-23 16:04:17,439 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 16:04:17,519 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Running provided shutdown stop hooks
+2021-03-23 16:04:36,764 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 16:04:36,774 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev) (no global state)
+2021-03-23 16:05:00,248 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-39-thread-7 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 16:05:00,248 [INFO] from play.core.server.AkkaHttpServer in pool-39-thread-7 - Stopping Akka HTTP server...
+2021-03-23 16:05:00,258 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-3 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 16:05:00,338 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-6 - Running provided shutdown stop hooks
+2021-03-23 16:06:05,020 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-6 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2021-03-23 16:06:05,031 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-6 - Application started (Dev) (no global state)
+2021-03-23 16:12:50,537 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-43-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2021-03-23 16:12:50,537 [INFO] from play.core.server.AkkaHttpServer in pool-43-thread-9 - Stopping Akka HTTP server...
+2021-03-23 16:12:50,547 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-13 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-03-23 16:12:50,677 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-15 - Running provided shutdown stop hooks

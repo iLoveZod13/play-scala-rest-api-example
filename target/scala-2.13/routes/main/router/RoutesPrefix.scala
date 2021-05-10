@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/Qi_Workspace/IdeaProjects/PlayScalaRestApi/conf/routes
-// @DATE:Sat Jan 30 19:17:47 CST 2021
+// @DATE:Tue Mar 23 11:38:59 CST 2021
 
 
 package router {
